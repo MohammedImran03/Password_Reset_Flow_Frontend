@@ -22,9 +22,9 @@ export default function RegisterPage() {
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const formik = useFormik({
     initialValues : {
-      email: 'example@gmail.com',
-      username: 'example',
-      password : 'example@123'
+      email: '',
+      username: '',
+      password : ''
     },
 
     validate : registerValidation,

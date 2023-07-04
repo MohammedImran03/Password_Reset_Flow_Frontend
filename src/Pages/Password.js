@@ -27,7 +27,7 @@ export default function PasswordPage() {
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const formik = useFormik({
     initialValues: {
-      password: 'admin@12345'
+      password: ''
     },
     validate: passwordValidate,
     validateOnBlur: false,

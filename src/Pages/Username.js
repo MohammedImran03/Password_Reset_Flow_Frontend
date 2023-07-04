@@ -35,7 +35,7 @@ export default function UsernamePage() {
       class="jumbotron1 p-3"
     >
       <h6 class="display-6 text-center">Hello User</h6>
-      <div class="text-center">Log in to visit our latest features...</div>
+      <div class="text-center">Welcome to our World, Log in to visit our latest features...</div>
       <hr></hr>
       <div className="textfields">
       <form className='py-1' onSubmit={formik.handleSubmit}>

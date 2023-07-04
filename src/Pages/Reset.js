@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import TextField from "@mui/material/TextField";
 import { useNavigate, Navigate} from 'react-router-dom';
 import {RxCross2} from 'react-icons/rx';
@@ -9,7 +9,7 @@ import './Pages.css';
 import { resetPasswordValidation } from '../helper/Validate';
 import useFetch from '../hooks/fetchhooks';
 import {useAuthStore} from '../store/store';
-import {resetPassword,CreateSessionOTP} from '../api/user.api';
+import {resetPassword} from '../api/user.api';
 
 export default function ResetPage() {
   const { username } = useAuthStore(state => state.auth);

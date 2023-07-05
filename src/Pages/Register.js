@@ -32,14 +32,14 @@ export default function RegisterPage() {
     validateOnChange: false,
     onSubmit : async values => {
       values = await Object.assign(values, { profile : file || ''});
-      let registerPromise = registerUser(values);
-      toast.promise(registerPromise, {
-        loading: 'Registeration Loading',
-        success : <b>Registered Successfully..!</b>,
-        error : <b>{error}</b>
-      });
-
-      registerPromise.then(function(){ navigate('/')});
+      try{
+        let registerPromise = registerUser(values);
+        registerPromise.then(function(){toast.success('Registeration Loading');
+         navigate('/')}).catch((res)=>toast.error(res.response.data.msg))
+      }catch(error){
+        console.log(error);
+        return Promise.reject({ error })
+      }
     }
   })
 

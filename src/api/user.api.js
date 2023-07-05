@@ -41,20 +41,26 @@ export async function getUser({ username }){
     }
 }
 
-/** register user function */
-export async function registerUser(credentials){
-    try {
-        const { data : { msg }, status }  = await axios.post(registeruserapi, credentials);
-        let { username, email } = credentials;
-        /** send email */
-        if(status === 201){
-            await axios.post(eamilapi, { username, userEmail : email, text : msg});
+
+
+
+export const registerUser = (credentials) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const res = await axios.post(registeruserapi, credentials);
+        resolve(res.data);
+    let { username, email } = credentials;
+               /** send email */
+        if(res.status === 201){
+            await axios.post(eamilapi, { username, userEmail : email, text : res.data.msg});
+           resolve(res.data);
         }
-        return Promise.resolve(msg);
-    } catch (error) {
-        return Promise.reject({ error });
-    }
-}
+      } catch (error) {
+        reject(error);
+      }
+    });
+  };
+
 
 /** login function */
 export async function verifyPassword({ username, password }){

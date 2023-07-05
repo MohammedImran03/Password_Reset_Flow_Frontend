@@ -50,9 +50,9 @@ export async function registerUser(credentials){
         if(status === 201){
             await axios.post(eamilapi, { username, userEmail : email, text : msg});
         }
-        return Promise.resolve(msg)
+        return Promise.resolve(msg);
     } catch (error) {
-        return Promise.reject({ error })
+        return Promise.reject({ error });
     }
 }
 

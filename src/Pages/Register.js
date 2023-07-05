@@ -34,7 +34,7 @@ export default function RegisterPage() {
       values = await Object.assign(values, { profile : file || ''});
       try{
         let registerPromise = registerUser(values);
-        registerPromise.then(function(){toast.success('Registeration Loading');
+        registerPromise.then(function(){toast.success('Registeration Successfull');
         setTimeout(()=>{
           navigate('/');
         },3000);

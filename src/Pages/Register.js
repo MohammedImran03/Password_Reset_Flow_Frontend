@@ -35,7 +35,10 @@ export default function RegisterPage() {
       try{
         let registerPromise = registerUser(values);
         registerPromise.then(function(){toast.success('Registeration Loading');
-         navigate('/')}).catch((res)=>toast.error(res.response.data.msg))
+        setTimeout(()=>{
+          navigate('/');
+        },3000);
+        }).catch((res)=>toast.error(res.response.data.msg))
       }catch(error){
         console.log(error);
         return Promise.reject({ error })
